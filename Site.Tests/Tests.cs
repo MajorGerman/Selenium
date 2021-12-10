@@ -1,36 +1,32 @@
 using System;
-using System.IO;
+using Framework.Selenium;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using Site.Pages;
 
 namespace Site.Tests;
 
 public class Tests {
-
-    IWebDriver driver;
-    
     [SetUp]
     public void BeforeEach() {
-        driver = new ChromeDriver(Path.GetFullPath(@"../../../../" + "_drivers"));
-        driver.Manage().Window.Maximize();
+        Driver.Init();
+        Driver.Current.Manage().Window.Maximize();
     }
 
     [TearDown]
     public void AfterEach() {
-        driver.Quit();
+        Driver.Current.Quit();
     }
 
     [Test]
     public void GeorgInstaCheck() {
 
-        driver.Url = "https://georglaabe.ru/";
+        Driver.Current.Url = "https://georglaabe.ru/";
         
-        var footerNav = new FooterNav(driver);
+        var footerNav = new FooterNav(Driver.Current);
         footerNav.Map.instaLink.Click();
-        
-        if (driver.Url == "https://www.instagram.com/rga_gt/") {
+
+        if (Driver.Current.Url == "https://www.instagram.com/rga_gt/") {
             Assert.Pass();
         } else {
             Assert.Fail();
@@ -41,12 +37,12 @@ public class Tests {
     [Test]
     public void GeorgTransCheck() {
 
-        driver.Url = "https://georglaabe.ru/trans";
+        Driver.Current.Url = "https://georglaabe.ru/trans";
         Console.WriteLine("");
 
-        IWebElement submit = driver.FindElement(By.CssSelector("button[onclick='trans()']"));
-        IWebElement input1 = driver.FindElement(By.Id("txt1"));
-        IWebElement input2 = driver.FindElement(By.Id("txt2"));
+        IWebElement submit = Driver.Current.FindElement(By.CssSelector("button[onclick='trans()']"));
+        IWebElement input1 = Driver.Current.FindElement(By.Id("txt1"));
+        IWebElement input2 = Driver.Current.FindElement(By.Id("txt2"));
 
         string[] strings = {"Эстония - крутая страна!", 
                             "Люблю работать в 'Энергии'",
@@ -64,18 +60,15 @@ public class Tests {
             Console.WriteLine(input2.GetAttribute("value"));
             Console.WriteLine(strings2[i]);
 
-            if (input2.GetAttribute("value") != strings2[i]) {
-                Assert.Fail();
-            }
+            Assert.True(input2.GetAttribute("value") == strings2[i]);
+
         }
-
-        Assert.Pass();
-
+        
     }
 
     
     public void exec(String script) {
-        IJavaScriptExecutor jsEx = (IJavaScriptExecutor) driver;
+        IJavaScriptExecutor jsEx = (IJavaScriptExecutor) Driver.Current;
         jsEx.ExecuteScript(script);
     }
 
