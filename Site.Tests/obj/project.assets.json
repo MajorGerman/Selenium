@@ -308,7 +308,7 @@
           "lib/netstandard1.0/_._": {}
         },
         "build": {
-          "build/netstandard2.0/NETStandard.Library.targets": {}
+          "build/netstandard2.0/_._": {}
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -341,7 +341,7 @@
           "lib/netstandard2.0/nunit.framework.dll": {}
         },
         "build": {
-          "build/NUnit.props": {}
+          "build/_._": {}
         }
       },
       "NUnit3TestAdapter/4.0.0": {
@@ -387,6 +387,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "NUnit": "3.13.2",
           "Selenium.Support": "4.1.0",
           "Selenium.WebDriver": "4.1.0"
         },
@@ -1345,7 +1346,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.NET.Test.Sdk >= 16.11.0",
-      "NUnit >= 3.13.2",
       "NUnit3TestAdapter >= 4.0.0",
       "Site >= 1.0.0",
       "coverlet.collector >= 3.1.0"
@@ -1395,10 +1395,6 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[16.11.0, )"
-          },
-          "NUnit": {
-            "target": "Package",
-            "version": "[3.13.2, )"
           },
           "NUnit3TestAdapter": {
             "target": "Package",

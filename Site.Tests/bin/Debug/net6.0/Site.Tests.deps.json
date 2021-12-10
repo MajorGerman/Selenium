@@ -9,7 +9,6 @@
       "Site.Tests/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "16.11.0",
-          "NUnit": "3.13.2",
           "NUnit3TestAdapter": "4.0.0",
           "Site": "1.0.0",
           "coverlet.collector": "3.1.0"
@@ -339,6 +338,7 @@
       "System.Reflection.Metadata/1.6.0": {},
       "Framework/1.0.0": {
         "dependencies": {
+          "NUnit": "3.13.2",
           "Selenium.Support": "4.1.0",
           "Selenium.WebDriver": "4.1.0"
         },

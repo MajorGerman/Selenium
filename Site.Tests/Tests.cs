@@ -1,4 +1,5 @@
 using System;
+using Framework;
 using Framework.Selenium;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -7,22 +8,29 @@ using Site.Pages;
 namespace Site.Tests;
 
 public class Tests {
+
+    [OneTimeSetUp]
+    public void BeforeAll() {
+        FW.CreateOutputDirectory();
+    }
+
     [SetUp]
     public void BeforeEach() {
+        FW.SetLogger();
         Driver.Init();
         Driver.Current.Manage().Window.Maximize();
     }
 
     [TearDown]
     public void AfterEach() {
-        Driver.Current.Quit();
+        Driver.Quit();
     }
 
     [Test]
     public void GeorgInstaCheck() {
 
-        Driver.Current.Url = "https://georglaabe.ru/";
-        
+        Driver.GoTo("georglaabe.ru");
+    
         var footerNav = new FooterNav(Driver.Current);
         footerNav.Map.instaLink.Click();
 
@@ -37,12 +45,12 @@ public class Tests {
     [Test]
     public void GeorgTransCheck() {
 
-        Driver.Current.Url = "https://georglaabe.ru/trans";
+        Driver.GoTo("georglaabe.ru/trans");
         Console.WriteLine("");
 
-        IWebElement submit = Driver.Current.FindElement(By.CssSelector("button[onclick='trans()']"));
-        IWebElement input1 = Driver.Current.FindElement(By.Id("txt1"));
-        IWebElement input2 = Driver.Current.FindElement(By.Id("txt2"));
+        IWebElement submit = Driver.FindElement(By.CssSelector("button[onclick='trans()']"));
+        IWebElement input1 = Driver.FindElement(By.Id("txt1"));
+        IWebElement input2 = Driver.FindElement(By.Id("txt2"));
 
         string[] strings = {"Эстония - крутая страна!", 
                             "Люблю работать в 'Энергии'",
@@ -53,17 +61,24 @@ public class Tests {
                             "18 lEt ya zhIvu v etOm mirE"};
 
         for (int i = 0; i < strings.GetLength(0); i++) {
-            exec("document.getElementById('txt1').value = '';");
+            
+            string script = "document.getElementById('txt1').value = '';";
+            exec(script);
+            FW.Log.Step("Script was executed: >>> " + script + " <<< ");
+            
             input1.SendKeys(strings[i]);
+            FW.Log.Step("Keys (" + strings[i] + ") were sent to element with ID: " + input1.GetAttribute("id"));
+                        
             submit.Click();
-
-            Console.WriteLine(input2.GetAttribute("value"));
-            Console.WriteLine(strings2[i]);
+            FW.Log.Step("Clicked on element with ID: " + submit.GetAttribute("id"));
 
             Assert.True(input2.GetAttribute("value") == strings2[i]);
+            FW.Log.Step("Compared values: >>> " + input2.GetAttribute("value") + " <<< & >>> " + strings2[i] + " <<< ");
 
         }
-        
+
+        FW.Log.Info("Tests were passed successfully!");
+
     }
 
     

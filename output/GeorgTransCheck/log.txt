@@ -1,0 +1,23 @@
+ --------------------------------------- 
+     Test: GeorgTransCheck 
+     Timestamp: 10.12.2021 15:04:09 
+ --------------------------------------- 
+[INFO]: Browser was opened: Google Chrome
+[INFO]: Went to: http://georglaabe.ru/trans
+    [STEP]: Element was Found: button[onclick='trans()']
+    [STEP]: Element was Found: #txt1
+    [STEP]: Element was Found: #txt2
+    [STEP]: Script was executed: >>> document.getElementById('txt1').value = ''; <<< 
+    [STEP]: Keys (Эстония - крутая страна!) were sent to element with ID: txt1
+    [STEP]: Clicked on element with ID: btn1
+    [STEP]: Compared values: >>> Estoniya - krutaya strana! <<< & >>> Estoniya - krutaya strana! <<< 
+    [STEP]: Script was executed: >>> document.getElementById('txt1').value = ''; <<< 
+    [STEP]: Keys (Люблю работать в 'Энергии') were sent to element with ID: txt1
+    [STEP]: Clicked on element with ID: btn1
+    [STEP]: Compared values: >>> Ljublju rabotat v Energii <<< & >>> Ljublju rabotat v Energii <<< 
+    [STEP]: Script was executed: >>> document.getElementById('txt1').value = ''; <<< 
+    [STEP]: Keys (18 лЕт я жИву в этОм мирЕ) were sent to element with ID: txt1
+    [STEP]: Clicked on element with ID: btn1
+    [STEP]: Compared values: >>> 18 lEt ya zhIvu v etOm mirE <<< & >>> 18 lEt ya zhIvu v etOm mirE <<< 
+[INFO]: Tests were passed successfully!
+[INFO]: Browser was Closed
