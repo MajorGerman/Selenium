@@ -1,0 +1,15 @@
+C:\Users\Georg\Desktop\selenium\Site\bin\Debug\net6.0\Site.deps.json
+C:\Users\Georg\Desktop\selenium\Site\bin\Debug\net6.0\Site.dll
+C:\Users\Georg\Desktop\selenium\Site\bin\Debug\net6.0\ref\Site.dll
+C:\Users\Georg\Desktop\selenium\Site\bin\Debug\net6.0\Site.pdb
+C:\Users\Georg\Desktop\selenium\Site\bin\Debug\net6.0\Framework.dll
+C:\Users\Georg\Desktop\selenium\Site\bin\Debug\net6.0\Framework.pdb
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.csproj.AssemblyReference.cache
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.AssemblyInfoInputs.cache
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.AssemblyInfo.cs
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.csproj.CoreCompileInputs.cache
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.csproj.CopyComplete
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.dll
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\ref\Site.dll
+C:\Users\Georg\Desktop\selenium\Site\obj\Debug\net6.0\Site.pdb
